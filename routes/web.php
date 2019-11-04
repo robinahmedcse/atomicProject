@@ -16,4 +16,9 @@ Route::get('/', function () {
 });
 
 
-route::get('/checkout','checkout@home');
+route::get('/checkbox','checkbox@home');
+route::post('/checkbox/save/data','checkbox@saveData');
+route::get('/checkbox/manage','checkbox@show');
+route::get('/checkbox/edit/{id}','checkbox@edit');
+route::post('/checkbox/update/data','checkbox@updateData');
+route::get('/checkbox/delete/{id}','checkbox@deleteData');

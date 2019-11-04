@@ -8,18 +8,27 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <title>Hello, world!</title>
+        <title>Edit,check box </title>
     </head>
 
 
 
     <body>
+        
+        
+        
         <div class="container">
+ 
+               <hr>
+            
 
-            <form>
-                <div class="form-group">
+               {!! Form::open(['url'=>'/checkbox/update/data','method'=>'POST','class'=>'form-horizontal form-label-left','enctype'=>'multipart/form-data']) !!}
+               {{csrf_field()}}
+               <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobby[]" value="c++" id="gridCheck">
+                       
+                        <input class="form-check-input" type="checkbox" name="hobby[]" value="c++" 
+                              {{in_array("c++",$all_data)?"checked":""}} id="gridCheck">
                         <label class="form-check-label" for="gridCheck">
                             C++
                         </label>
@@ -28,7 +37,8 @@
 
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobby[]" value="php" id="gridCheck">
+                        <input class="form-check-input" type="checkbox" name="hobby[]" value="php"
+                              {{in_array("php",$all_data)?"checked":""}}  id="gridCheck">
                         <label class="form-check-label" for="gridCheck">
                             php
                         </label>
@@ -37,7 +47,8 @@
 
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobby[]" value="laravel" id="gridCheck">
+                        <input class="form-check-input" type="checkbox" name="hobby[]" value="laravel" 
+                             {{in_array("laravel",$all_data)?"checked":""}}   id="gridCheck">
                         <label class="form-check-label" for="gridCheck">
                             Laravel
                         </label>
@@ -46,15 +57,16 @@
 
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="hobby[]" value="Java" id="gridCheck">
+                        <input class="form-check-input" type="checkbox" name="hobby[]" value="Java" 
+                              {{in_array("Java",$all_data)?"checked":""}}  id="gridCheck">
                         <label class="form-check-label" for="gridCheck">
                             Java
                         </label>
                     </div>
                 </div>
-
-                <input class="btn btn-primary" type="submit">
-            </form>
+ <input type="hidden" value="{{$id}}" name="number"><br>
+               <input class="btn btn-primary" type="submit" value="Update">
+              {!! Form::close() !!}
 
         </div>
 
