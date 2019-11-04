@@ -97,7 +97,7 @@
                     <a href="#">Book Title</a>
                     <a href="#">Profile Picture</a>
                     <a href="#">Education Level(Radio)</a>
-                    <a href="#">Hobby(check box)</a>
+                    <a href="{{URL::to('/checkout')}}">Hobby(check box)</a>
                     <a href="#">City(Select)</a>
                   
                 </div>
