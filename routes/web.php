@@ -16,6 +16,19 @@ Route::get('/', function () {
 });
 
 
+
+//////////////////////*************checkbox*************/////////////////////////
+route::get('/profile/picture','image@home');
+route::post('/profile/picture/save/data','image@saveData');
+route::get('/profile/picture/manage','image@show');
+route::get('/profile/picture/edit/{id}','image@edit');
+route::post('/profile/picture/update/data','image@updateData');
+route::get('/profile/picture/delete/{id}','image@deleteData');
+
+
+
+
+//////////////////////*************checkbox*************/////////////////////////
 route::get('/checkbox','checkbox@home');
 route::post('/checkbox/save/data','checkbox@saveData');
 route::get('/checkbox/manage','checkbox@show');
