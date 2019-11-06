@@ -14,19 +14,16 @@
 
 
     <body>
-        
-        
-        
-        <div class="container">
-             <div class="btn-group">
-                  <a  class="btn btn-info" href="{{URL::to('/') }}">Home</a>
-                <a  class="btn btn-success" href="{{URL::to('/checkbox/manage') }}">Show Hobby List</a>
-           </div>
+             <div class="container">
+                    @include('includes.menu')
             
-               <br><br>
+           
+               <br><br><hr>
+               <div class="card">
+                   <h2>Hobby<span class="badge badge-secondary"></span></h2>
+                   
+               </div>
                <hr>
-            
-
                {!! Form::open(['url'=>'/checkbox/save/data','method'=>'POST','class'=>'form-horizontal form-label-left','enctype'=>'multipart/form-data']) !!}
                {{csrf_field()}}
                <div class="form-group">

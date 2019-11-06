@@ -16,13 +16,13 @@
     <body>
 
         <div class="container">
-            <!-- Example single danger button -->
-            <div class="btn-group">
-                <a  class="btn btn-success" href="{{URL::to('/checkbox') }}">Add Hobby</a>
-                <a  class="btn btn-info" href="{{URL::to('/') }}">Home</a>
-            </div>
-            <br><br>
-            <hr>
+           
+                   @include('includes.menu')
+            
+           
+               <br><br><hr>
+                
+               <hr>
 
             
              <div class="">

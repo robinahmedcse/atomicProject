@@ -8,7 +8,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <title>Profile Picture</title>
+        <title>Edit Profile Picture</title>
     </head>
 
 
@@ -26,12 +26,19 @@
                <hr>
 
 
-            {!! Form::open(['url'=>'/profile/picture/save/data','method'=>'POST','class'=>'form-horizontal form-label-left', 'enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['url'=>'/profile/picture/update/data','method'=>'POST','class'=>'form-horizontal form-label-left', 'enctype'=>'multipart/form-data']) !!}
             {{csrf_field()}}
 
             <div class="form-group">
                 <label for="formGroupExampleInput">Name</label>
-                <input type="text" class="form-control" name="Name" placeholder="Type Your Name">
+                <input type="text" class="form-control" name="Name" value="{{$all_data->photo_name}}">
+                <input type="hidden" class="form-control" name="number" value="{{$all_data->photo_id}}">
+                 <input type="hidden" class="form-control" name="previousImage" value="{{$all_data->photo_url}}">
+            </div>
+            
+             <div class="form-group">
+                <label for="formGroupExampleInput">Previous Photo</label>
+                <img src="{{asset($all_data->photo_url)}}" width="20%">
             </div>
 
 
@@ -40,7 +47,7 @@
                 <div class="col-lg-7 ">
 
                     <label for="file-upload" class="custom-file-upload">
-                        <i class="fa fa-cloud-upload"></i> Upload Photo
+                        <i class="fa fa-cloud-upload"></i> Upload New photo
                     </label>
                     <br>
                     <input  name="photo" class="userPhoto"
@@ -60,7 +67,7 @@
 
 
 
-            <input class="btn btn-primary" id="submit" type="submit" value="Save">
+            <input class="btn btn-primary" id="submit" type="submit" value="Update">
             {!! Form::close() !!}
 
         </div>

@@ -7,6 +7,8 @@ use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
+use PDF;
+
 class image extends Controller
 {
     
@@ -35,12 +37,10 @@ class image extends Controller
         session::put('photo','All information Save Successfully');
         return redirect::to('/profile/picture/manage');
      
-        
     }//saveData
     
     
-    public function show() {
-        
+    public function show() { 
        $all_data=DB::table('photo')
                ->get();
         
@@ -48,54 +48,97 @@ class image extends Controller
                 ->with('all_data',$all_data);
     }
     
-    
      public function edit($id) {
         
-       $hobby=DB::table('tbl_checghkbox')
-               ->where('checkbox_id',$id)
+       $all_data=DB::table('photo')
+               ->where('photo_id',$id)
                ->first();
        
-       $id=$hobby->checkbox_id;
-       $all_data =  explode(",", $hobby->hobby);
-       
-        return view('checkbhox.editCheckBox')
-                 ->with('id',$id)
+        return view('picture.editPicture')
                 ->with('all_data',$all_data);
     }
     
-    
-   
-    
-      public function updateData(Request $request) {
-        
-         $pieces=$request->hobby;
-         $id=$request->number;
-         
-         $comma_separated = implode(",", $pieces);
 
+      public function updateData(Request $request) {
+         
+            $id=$request->number;
+            $image=$request->file();
+            
+            if($image == NULL){
+                $image_url=$request->previousImage;      
+            }else{
+                $image=$request->file('photo');
+                $name=$image->getClientOriginalName();
+                
+                $uploadPath='public/image/user/';
+                $image->move($uploadPath, $name);
+                
+                $image_url=$uploadPath.$name;
+            }
+               
+            
+            $user_name=$request->Name;
+           
+           
            $data=array();
-           $data['hobby'] = $comma_separated;
-    
+           $data['photo_name'] = $user_name;
+           $data['photo_url'] = $image_url;
         
-        DB::table('tbl_chehckbox')
-                ->where('checkbox_id',$id)
+         DB::table('photo')
+                ->where('photo_id',$id)
                  ->update($data);
          
-        session::put('checkbox','All information Update Successfully');
-        return redirect::to('/checkbox/manage');
+        
+       session::put('photo','All information Update Successfully');
+        return redirect::to('/profile/picture/manage');
      
         
     }//saveData
     
     
+     public function viewsPdf($id) {
+            $data=DB::table('photo')
+                ->where('photo_id',$id)
+               ->first();
+        
+        return view('picture.viewPicture')
+                ->with('data',$data);
+         
+         
+       
+    }
+    
+    public function downloadPdf($id) {
+     
+                $data=DB::table('photo')
+                ->where('photo_id',$id)
+               ->first();
+        
+        
+        $pdf = PDF::loadView('picture.pdfPicture',['data' => $data])
+                ->setPaper('a4', 'portrait');
+
+        $photo_name = $data->photo_name;
+
+        return $pdf->download($photo_name.'.pdf');
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
     public function deleteData($id) {
         
-            DB::table('tbl_checkbox')
-                ->where('checkbox_id',$id)
+            DB::table('photo')
+                ->where('photo_id',$id)
                  ->delete();
          
-        session::put('checkbox','All information Delete Successfully');
-        return redirect::to('/checkbox/manage');
+        session::put('photo','All information Delete Successfully');
+        return redirect::to('/profile/picture/manage');
      
     }
     

@@ -94,12 +94,8 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>-->
                    <div class="links">
-                    <a href="#">Book Title</a>
                     <a href="{{URL::to('/profile/picture')}}">Profile Picture</a>
-                    <a href="#">Education Level(Radio)</a>
                     <a href="{{URL::to('/checkbox')}}">Hobby(check box)</a>
-                    <a href="#">City(Select)</a>
-                  
                 </div>
             </div>
         </div>

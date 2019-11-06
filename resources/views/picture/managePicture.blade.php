@@ -17,13 +17,12 @@
 
         <div class="container">
             <!-- Example single danger button -->
-            <div class="btn-group">
-                <a  class="btn btn-success" href="{{URL::to('/profile/picture') }}">Add Photo</a>
-                <a  class="btn btn-info" href="{{URL::to('/') }}">Home</a>
-            </div>
-            <br><br>
-            <hr>
-
+                    @include('includes.menu')
+            
+           
+               <br><br><hr>
+                
+               <hr>
             
              <div class="">
                <h4 class="tex text-center text-danger">{{Session::get('photo')}}
@@ -40,7 +39,7 @@
                         <tr align="center" >
                             <th class="table-secondary"  >Serial</th>
                             <th class="table-success">Name</th>
-                            <th class="table-success">Photo</th>
+                            <th class="table-info">Photo</th>
                             <th class="table-danger">Action</th>
                         </tr>
                     <thead>
@@ -52,7 +51,14 @@
                                 <td> 
                                     <img src="{{asset($data->photo_url)}}" width="15%">
                                 </td>
-                            <td>
+                            <td>    
+                                <a href="{{url('/profile/picture/view/pdf/'.$data->photo_id)}}" target="_blank" class="btn btn-warning">
+                                    <span class="glyphicon glyphicon-download">View Pdf</span>
+                                </a>  
+                                 <a href="{{url('/profile/picture/download/pdf/'.$data->photo_id)}}" class="btn btn-info">
+                                    <span class="glyphicon glyphicon-download">Download Pdf</span>
+                                </a>                                
+
                                 <a href="{{url('/profile/picture/edit/'.$data->photo_id)}}" class="btn btn-success">
                                     <span class="glyphicon glyphicon-edit">Edit</span>
                                 </a> 
