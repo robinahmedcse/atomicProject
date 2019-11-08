@@ -18,12 +18,25 @@
 
 
 <div class="btn-group">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Image
     </button>
     <div class="dropdown-menu">
          <a  class="btn btn-defult" href="{{URL::to('/profile/picture') }}">Add Photo</a>
        <a   class="btn btn-defult" href="{{URL::to('/profile/picture/manage') }}">manage Photo</a>
+
+    </div>
+</div>
+ 
+
+
+<div class="btn-group">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Text
+    </button>
+    <div class="dropdown-menu">
+         <a  class="btn btn-defult" href="{{URL::to('/book/title') }}">Add Title</a>
+       <a   class="btn btn-defult" href="{{URL::to('/book/title/manage') }}">manage Title</a>
 
     </div>
 </div>

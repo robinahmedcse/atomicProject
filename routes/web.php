@@ -37,3 +37,14 @@ route::post('/profile/picture/update/data','image@updateData');
 route::get('/profile/picture/delete/{id}','image@deleteData');
 
 
+//////////////////////*************Text*************/////////////////////////
+route::get('/book/title','title@home');
+route::post('/book/title/save/data','title@saveData');
+route::get('/book/title/manage','title@show');
+route::get('/book/title/edit/{id}','title@edit');
+route::post('/book/title/update/data','title@updateData');
+route::get('/book/title/delete/{id}','title@deleteData');
+
+route::post('/book/title/save/excel','title@inputExcel');
+
+

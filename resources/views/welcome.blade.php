@@ -96,6 +96,7 @@
                    <div class="links">
                     <a href="{{URL::to('/profile/picture')}}">Profile Picture</a>
                     <a href="{{URL::to('/checkbox')}}">Hobby(check box)</a>
+                    <a href="{{URL::to('/book/title')}}">Text</a>
                 </div>
             </div>
         </div>
