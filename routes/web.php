@@ -47,4 +47,28 @@ route::get('/book/title/delete/{id}','title@deleteData');
 
 route::post('/book/title/save/excel','title@inputExcel');
 
+ 
+
+//////////////////////*************pagination*************/////////////////////////
+ 
+route::get('/pagination/manage','pagination@index');
+//route::get('/pagination/book/title/fetch_data','pagination@fatch_data');
+
+Route::get('pagination/fetch_data', 'PaginationController@fatch_data');
+ 
+ 
+
+//////////////////////*************dropdown*************/////////////////////////
+route::get('/cascading/dropdown','dropdown@home');
+route::post('/get/upazila','dropdown@getUp');
+ 
+ 
+
+ 
+
+ 
+
+
+
+
 

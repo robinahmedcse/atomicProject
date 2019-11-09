@@ -73,41 +73,8 @@ Session::put('title', NULL);
             </div> 
 
 
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead >
-                        <tr align="center" >
-                            <th class="table-secondary"  >Serial</th>
-                            <th class="table-success">Title</th>
-                            <th class="table-success">Name</th>
-                            <th class="table-danger">Action</th>
-                        </tr>
-                    <thead>
-                    <tbody>
-                        @foreach($all_data as $data)
-                        <tr align="center" >
-                            <th scope="row">{{$data->title_id}}</th>
-                            <th scope="row">{{$data->title}}</th>
-                            <td>{{$data->name}}</td>
-                            <td>
-                                <a href="{{url('/book/title/edit/'.$data->title_id)}}" class="btn btn-success">
-                                    <span class="glyphicon glyphicon-edit">Edit</span>
-                                </a> 
-
-                                <a href="{{url('/book/title/delete/'.$data->title_id)}}" class="btn btn-danger"  onclick="return one_delete();">
-                                    <span class="glyphicon glyphicon-trash">Delete</span>
-                                </a>
-                            </td>
-
-                        </tr>
-                        @endforeach
-
-
-                    </tbody>
-
-
-                </table>
-                {!!  $all_data->links()  !!}
+            <div id="table-data">
+                @include('paginationTitle.blade')
             </div>
 
         </div>
@@ -127,3 +94,29 @@ Session::put('title', NULL);
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
+
+<script>
+    
+    $(document).reday(function(){
+         $(document).on('click','.pagination a', function(event){
+             event.preventDefault();
+             var page = $(this).attr('href').split('page=')[1];
+             fetch_data(page);
+         });
+        
+    });
+    
+    function fetch_data(page)
+ {
+  $.ajax({
+   url:"pagination/book/title/fetch_data?page="+page,
+   success:function(data)
+   {
+    $('#table_data').html(data);
+   }
+  });
+ }
+ 
+});
+    
+    </script>

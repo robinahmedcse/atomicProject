@@ -42,11 +42,29 @@
 </div>
  
  
-
-
+<!--<div class="btn-group">
+    <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        pagination
+    </button>
+    <div class="dropdown-menu">
+       <a   class="btn btn-defult" href="{{URL::to('/pagination/manage') }}">manage Title Pagination</a>
+    </div>
+</div>
+ -->
 
  
-    
+ <div class="btn-group">
+    <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Cascading Drop Down(Ajax)
+    </button>
+    <div class="dropdown-menu">
+       <a   class="btn btn-defult" href="{{URL::to('/cascading/dropdown/manage') }}">Dropdown</a>
+    </div>
+</div>
+ 
+
+
+
     
  
 

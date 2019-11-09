@@ -94,9 +94,13 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>-->
                    <div class="links">
+				  
                     <a href="{{URL::to('/profile/picture')}}">Profile Picture</a>
                     <a href="{{URL::to('/checkbox')}}">Hobby(check box)</a>
                     <a href="{{URL::to('/book/title')}}">Text</a>
+<!--                     <a href="{{URL::to('/pagination/manage')}}">Pagination</a>-->
+                    <a href="{{URL::to('/cascading/dropdown')}}">Cascading Dropdown (Ajax)</a>
+
                 </div>
             </div>
         </div>

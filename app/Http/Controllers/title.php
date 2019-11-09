@@ -40,11 +40,17 @@ class title extends Controller
     public function show() {
         
        $all_data=DB::table('tbl_title')
-               ->get();
+             //  ->get();
+        ->paginate(5);
+       
+    //    return view('title.manageTitle')
+      //          ->with('all_data',$all_data);
         
-        return view('title.manageTitle')
-                ->with('all_data',$all_data);
+          return view('title.manageTitle', compact('all_data'));
+               
     }
+    
+ 
     
     
         public function inputExcel(Request $request) {
@@ -76,18 +82,6 @@ class title extends Controller
         }
 
 
-
-
-
-
-        exit();
-          
-    /*
-        DB::table('tbl_title')->insert($data);
-        session::put('title','All information Save Successfully');
-        return redirect::to('/book/title/manage');
-     */
-        
     }//saveData
     
     
